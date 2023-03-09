@@ -13,7 +13,10 @@ class SignupPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        backgroundColor: Theme.of(context).colorScheme.background,
+        title: Text('Signup'),
+      ),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.only(

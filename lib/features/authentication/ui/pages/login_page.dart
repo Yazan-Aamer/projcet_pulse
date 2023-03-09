@@ -90,10 +90,39 @@ class LoginPage extends StatelessWidget {
                   ],
                 ),
               ),
+              Padding(
+                padding: const EdgeInsets.all(UIConstants.smPadding),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    RichText(
+                        text: TextSpan(children: [
+                      TextSpan(
+                        text: 'Did you forget your password? click ',
+                        style: Theme.of(context).textTheme.bodySmall,
+                      ),
+                    ])),
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.of(context)
+                            .pushNamed(AuthRoutes.forgotPassword);
+                      },
+                      child: Text(
+                        'here',
+                        style: Theme.of(context).textTheme.bodySmall!.copyWith(
+                            decorationColor:
+                                Theme.of(context).colorScheme.primary,
+                            decoration: TextDecoration.underline,
+                            color: Theme.of(context).colorScheme.primary),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
               RichText(
                   text: TextSpan(children: [
                 TextSpan(
-                  text: 'Don\'t have an account, ',
+                  text: 'Don\'t have an account,',
                   style: Theme.of(context).textTheme.bodySmall,
                 ),
               ])),
@@ -102,7 +131,7 @@ class LoginPage extends StatelessWidget {
                   Navigator.of(context).pushNamed(AuthRoutes.signup);
                 },
                 child: Text(
-                  'sign up',
+                  'sign up'.toUpperCase(),
                   style: Theme.of(context).textTheme.bodySmall!.copyWith(
                       decorationColor: Theme.of(context).colorScheme.primary,
                       decoration: TextDecoration.underline,

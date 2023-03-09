@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:project_pulse/core/ui/themes.dart';
+import 'package:project_pulse/features/authentication/ui/pages/forgot_password_page.dart';
 import 'package:project_pulse/features/authentication/ui/pages/login_page.dart';
 import 'package:project_pulse/features/authentication/ui/pages/signup_page.dart';
 import 'core/constants/configs.dart';
@@ -11,13 +12,14 @@ class AppWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: Configs.appTitle,
       initialRoute: AuthRoutes.login,
-      theme: CustomThemes.lightTheme,
+      theme: CustomThemes.darkTheme,
       routes: {
         AuthRoutes.login: (context) => const LoginPage(),
         AuthRoutes.signup: (context) => const SignupPage(),
-        AuthRoutes.forgotPassword: (context) => const Placeholder(),
+        AuthRoutes.forgotPassword: (context) => const ForgotPasswordPage(),
         AuthRoutes.homePage: (context) => const Placeholder(),
       },
     );
