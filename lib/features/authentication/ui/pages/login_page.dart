@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:project_pulse/core/constants/routes.dart';
 import 'package:project_pulse/core/ui/themes.dart';
 import 'package:project_pulse/features/authentication/ui/widgets/social_media_button.dart';
 
@@ -95,14 +96,19 @@ class LoginPage extends StatelessWidget {
                   text: 'Don\'t have an account, ',
                   style: Theme.of(context).textTheme.bodySmall,
                 ),
-                TextSpan(
-                  text: 'sign up',
+              ])),
+              TextButton(
+                onPressed: () {
+                  Navigator.of(context).pushNamed(AuthRoutes.signup);
+                },
+                child: Text(
+                  'sign up',
                   style: Theme.of(context).textTheme.bodySmall!.copyWith(
                       decorationColor: Theme.of(context).colorScheme.primary,
                       decoration: TextDecoration.underline,
                       color: Theme.of(context).colorScheme.primary),
                 ),
-              ]))
+              ),
             ],
           ),
         ),

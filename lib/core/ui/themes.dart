@@ -78,10 +78,12 @@ class UIConstants {
   static const double mdCorners = 32;
   static const double smCorners = 16;
 
+  static const double xSmPadding = 8;
   static const double smPadding = 16;
   static const double mdPadding = 32;
   static const double lgPadding = 64;
 
+  static const double xLgSize = 128;
   static const double lgSize = 64;
   static const double mdSize = 36;
   static const double smSize = 16;
