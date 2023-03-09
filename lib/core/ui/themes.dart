@@ -89,3 +89,13 @@ class UIConstants {
   static const double smSize = 16;
   static const double xSmSize = 8;
 }
+
+class TextStyles {
+  static const boldMin = FontWeight.w300;
+  static const boldMed = FontWeight.w500;
+  static const boldExt = FontWeight.w700;
+
+  static const heightMin = 1.1;
+  static const heightMed = 1.4;
+  static const heightExt = 1.7;
+}

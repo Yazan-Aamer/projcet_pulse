@@ -15,7 +15,7 @@ class SignupPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.background,
-        title: Text('Signup'),
+        title: const Text('Signup'),
       ),
       body: SingleChildScrollView(
         child: Padding(

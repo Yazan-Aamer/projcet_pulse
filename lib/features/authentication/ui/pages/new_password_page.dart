@@ -8,15 +8,15 @@ import 'package:project_pulse/features/authentication/ui/widgets/text_input_with
 
 import '../../../../core/path_clippers/wave_clipper.dart';
 
-class ForgotPasswordPage extends StatelessWidget {
-  const ForgotPasswordPage({super.key});
+class NewPasswordPage extends StatelessWidget {
+  const NewPasswordPage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.background,
-        title: const Text('Forgot Password'),
+        title: const Text('New Password'),
         centerTitle: true,
       ),
       body: Stack(
@@ -44,14 +44,11 @@ class ForgotPasswordPage extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Padding(
-                    padding: const EdgeInsets.fromLTRB(
-                      UIConstants.smSize,
-                      UIConstants.mdSize,
-                      UIConstants.mdSize,
+                    padding: const EdgeInsets.all(
                       UIConstants.mdSize,
                     ),
                     child: Icon(
-                      FontAwesomeIcons.userLock,
+                      FontAwesomeIcons.lockOpen,
                       color: Theme.of(context).colorScheme.primary,
                       size: UIConstants.xLgSize,
                     ),
@@ -60,17 +57,19 @@ class ForgotPasswordPage extends StatelessWidget {
                     padding: const EdgeInsets.symmetric(
                         vertical: UIConstants.mdSize),
                     child: Text(
-                      '${'Please enter your email adress to'.lineBreak()}send you verification code',
+                      '${'Your new password must be different'.lineBreak()}from previously userd password',
                       style: Theme.of(context).textTheme.bodyMedium!.copyWith(
-                            fontWeight: FontWeight.bold,
-                          ),
+                          fontWeight: TextStyles.boldMed,
+                          height: TextStyles.heightMed),
                       textAlign: TextAlign.center,
                     ),
                   ),
-                  TextInputWithLabel(label: 'Enter your email'),
+                  TextInputWithLabel(label: 'New Password'),
+                  const SizedBox(height: UIConstants.xSmSize),
+                  TextInputWithLabel(label: 'Confirm New Password'),
                   const SizedBox(height: UIConstants.lgSize),
                   PrimaryElevatedButton(
-                      label: 'Send',
+                      label: 'Change Password',
                       onPressed: () {
                         Navigator.of(context).pushNamed(
                             AuthRoutes.emailVerification,
