@@ -4,6 +4,7 @@ import 'package:project_pulse/core/ui/themes.dart';
 import 'package:project_pulse/features/authentication/ui/widgets/social_media_button.dart';
 
 import '../../../../core/constants/routes.dart';
+import '../../../../core/ui/widgets/app_scaffold.dart';
 import '../widgets/primary_elevated_button.dart';
 import '../widgets/text_input_with_label.dart';
 
@@ -12,12 +13,8 @@ class SignupPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.background,
-        title: const Text('Signup'),
-      ),
-      body: SingleChildScrollView(
+    return AppScaffold(
+      child: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.only(
             left: UIConstants.mdPadding,

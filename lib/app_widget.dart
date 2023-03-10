@@ -17,11 +17,11 @@ class AppWidget extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: Configs.appTitle,
       initialRoute: AuthRoutes.login,
-      theme: CustomThemes.darkTheme,
+      theme: CustomThemes.lightTheme,
       routes: {
-        AuthRoutes.login: (context) => const LoginPage(),
+        AuthRoutes.login: (context) => LoginPage(),
         AuthRoutes.signup: (context) => const SignupPage(),
-        AuthRoutes.forgotPassword: (context) => const ForgotPasswordPage(),
+        AuthRoutes.forgotPassword: (context) => ForgotPasswordPage(),
         AuthRoutes.homePage: (context) => const Placeholder(),
         AuthRoutes.emailVerification: (context) =>
             const EmailVerficiationPage(),

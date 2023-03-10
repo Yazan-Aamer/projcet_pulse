@@ -23,8 +23,9 @@ class TextInputWithLabel extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: UIConstants.mdSize,
+      height: UIConstants.lgSize,
       child: TextFormField(
+          cursorHeight: UIConstants.smSize,
           validator: validator,
           onChanged: onChanged,
           obscureText: obscureText ?? false,

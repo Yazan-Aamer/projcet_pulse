@@ -6,80 +6,55 @@ import 'package:project_pulse/core/ui/themes.dart';
 import 'package:project_pulse/features/authentication/ui/widgets/primary_elevated_button.dart';
 import 'package:project_pulse/features/authentication/ui/widgets/text_input_with_label.dart';
 
-import '../../../../core/path_clippers/wave_clipper.dart';
+import '../../../../core/ui/widgets/app_scaffold.dart';
 
 class NewPasswordPage extends StatelessWidget {
   const NewPasswordPage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.background,
-        title: const Text('New Password'),
-        centerTitle: true,
-      ),
-      body: Stack(
-        children: [
-          ClipPath(
-            clipper: WaveClipper(),
-            child: Container(
-              height: double.infinity,
-              decoration: BoxDecoration(
-                gradient: LinearGradient(
-                  colors: [
-                    Theme.of(context).colorScheme.primary,
-                    Theme.of(context).colorScheme.secondary
-                  ],
-                  begin: Alignment.topCenter,
-                  end: Alignment.bottomCenter,
+    return AppScaffold(
+      child: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.all(UIConstants.mdPadding),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(
+                  UIConstants.mdSize,
+                ),
+                child: Icon(
+                  FontAwesomeIcons.lockOpen,
+                  color: Theme.of(context).colorScheme.primary,
+                  size: UIConstants.xLgSize,
                 ),
               ),
-            ),
-          ),
-          SingleChildScrollView(
-            child: Padding(
-              padding: const EdgeInsets.all(UIConstants.mdPadding),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.all(
-                      UIConstants.mdSize,
-                    ),
-                    child: Icon(
-                      FontAwesomeIcons.lockOpen,
-                      color: Theme.of(context).colorScheme.primary,
-                      size: UIConstants.xLgSize,
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(
-                        vertical: UIConstants.mdSize),
-                    child: Text(
-                      '${'Your new password must be different'.lineBreak()}from previously userd password',
-                      style: Theme.of(context).textTheme.bodyMedium!.copyWith(
-                          fontWeight: TextStyles.boldMed,
-                          height: TextStyles.heightMed),
-                      textAlign: TextAlign.center,
-                    ),
-                  ),
-                  TextInputWithLabel(label: 'New Password'),
-                  const SizedBox(height: UIConstants.xSmSize),
-                  TextInputWithLabel(label: 'Confirm New Password'),
-                  const SizedBox(height: UIConstants.lgSize),
-                  PrimaryElevatedButton(
-                      label: 'Change Password',
-                      onPressed: () {
-                        Navigator.of(context).pushNamed(
-                            AuthRoutes.emailVerification,
-                            arguments: {'email': 'yaza.ma.aamer@gmail.com'});
-                      })
-                ],
+              Padding(
+                padding:
+                    const EdgeInsets.symmetric(vertical: UIConstants.mdSize),
+                child: Text(
+                  '${'Your new password must be different'.lineBreak()}from previously userd password',
+                  style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                      fontWeight: TextStyles.boldMed,
+                      height: TextStyles.heightMed),
+                  textAlign: TextAlign.center,
+                ),
               ),
-            ),
+              TextInputWithLabel(label: 'New Password'),
+              const SizedBox(height: UIConstants.xSmSize),
+              TextInputWithLabel(label: 'Confirm New Password'),
+              const SizedBox(height: UIConstants.lgSize),
+              PrimaryElevatedButton(
+                  label: 'Change Password',
+                  onPressed: () {
+                    Navigator.of(context).pushNamed(
+                        AuthRoutes.emailVerification,
+                        arguments: {'email': 'yaza.ma.aamer@gmail.com'});
+                  })
+            ],
           ),
-        ],
+        ),
       ),
     );
   }

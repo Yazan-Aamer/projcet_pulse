@@ -17,10 +17,7 @@ import 'package:flutter/foundation.dart'
 class DefaultFirebaseOptions {
   static FirebaseOptions get currentPlatform {
     if (kIsWeb) {
-      throw UnsupportedError(
-        'DefaultFirebaseOptions have not been configured for web - '
-        'you can reconfigure this by running the FlutterFire CLI again.',
-      );
+      return web;
     }
     switch (defaultTargetPlatform) {
       case TargetPlatform.android:
@@ -31,20 +28,14 @@ class DefaultFirebaseOptions {
           'you can reconfigure this by running the FlutterFire CLI again.',
         );
       case TargetPlatform.macOS:
-        throw UnsupportedError(
-          'DefaultFirebaseOptions have not been configured for macos - '
-          'you can reconfigure this by running the FlutterFire CLI again.',
-        );
+        return macos;
       case TargetPlatform.windows:
         throw UnsupportedError(
           'DefaultFirebaseOptions have not been configured for windows - '
           'you can reconfigure this by running the FlutterFire CLI again.',
         );
       case TargetPlatform.linux:
-        throw UnsupportedError(
-          'DefaultFirebaseOptions have not been configured for linux - '
-          'you can reconfigure this by running the FlutterFire CLI again.',
-        );
+        return linux;
       default:
         throw UnsupportedError(
           'DefaultFirebaseOptions are not supported for this platform.',
@@ -52,11 +43,39 @@ class DefaultFirebaseOptions {
     }
   }
 
+  static const FirebaseOptions web = FirebaseOptions(
+    apiKey: 'AIzaSyDohACYKqZiyuT5WOr3_RRLCA1u0DtZ2pc',
+    appId: '1:151465332652:web:cc535f6ebfc254fc2eb409',
+    messagingSenderId: '151465332652',
+    projectId: 'projectpulse-ecfb0',
+    authDomain: 'projectpulse-ecfb0.firebaseapp.com',
+    storageBucket: 'projectpulse-ecfb0.appspot.com',
+    measurementId: 'G-R5TF5HL961',
+  );
+  static const FirebaseOptions linux = FirebaseOptions(
+    apiKey: 'AIzaSyBMXNCgVx3HybQ5bWlgyu1O_1rpXsDgp-o',
+    appId: '1:151465332652:ios:516baeb04dfb04bd2eb409',
+    messagingSenderId: '151465332652',
+    projectId: 'projectpulse-ecfb0',
+    storageBucket: 'projectpulse-ecfb0.appspot.com',
+  );
+
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyD0vpOGPMw_Zyd9iyjrYYXxIrs6BXVaU6I',
     appId: '1:151465332652:android:7a2a030ad88a1ce22eb409',
     messagingSenderId: '151465332652',
     projectId: 'projectpulse-ecfb0',
     storageBucket: 'projectpulse-ecfb0.appspot.com',
+  );
+
+  static const FirebaseOptions macos = FirebaseOptions(
+    apiKey: 'AIzaSyBMXNCgVx3HybQ5bWlgyu1O_1rpXsDgp-o',
+    appId: '1:151465332652:ios:516baeb04dfb04bd2eb409',
+    messagingSenderId: '151465332652',
+    projectId: 'projectpulse-ecfb0',
+    storageBucket: 'projectpulse-ecfb0.appspot.com',
+    iosClientId:
+        '151465332652-rjign7jtl627os7rllkm8tuerrodd8ss.apps.googleusercontent.com',
+    iosBundleId: 'com.example.projectPulse',
   );
 }

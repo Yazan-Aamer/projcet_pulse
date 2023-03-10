@@ -5,7 +5,7 @@ class WaveClipper extends CustomClipper<Path> {
   Path getClip(Size size) {
     Path path = Path();
     const delta = 40;
-    final height = size.height - 90;
+    final height = size.height - 270;
 
     const double startingX = 0;
     final startingY = height;
