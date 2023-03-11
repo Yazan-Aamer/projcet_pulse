@@ -19,6 +19,7 @@ class LoginPage extends StatelessWidget {
       child: StreamBuilder(
           stream: FirebaseAuth.instance.authStateChanges(),
           builder: (context, snapshot) {
+            debugPrint(FirebaseAuth.instance.currentUser.toString());
             if (snapshot.data != null) {
               return Center(child: Text(snapshot.data!.displayName.toString()));
             } else if (snapshot.data == null) {
@@ -59,12 +60,14 @@ class LoginPage extends StatelessWidget {
                         child: Column(
                           children: [
                             TextInputWithLabel(
+                              controller: emailController,
                               label: 'Email',
                             ),
                             const SizedBox(
                               height: UIConstants.xSmSize,
                             ),
                             TextInputWithLabel(
+                              controller: passwordController,
                               label: 'Password',
                               obscureText: true,
                             ),
@@ -76,8 +79,8 @@ class LoginPage extends StatelessWidget {
                       label: 'Sign in',
                       onPressed: () {
                         FirebaseAuth.instance.signInWithEmailAndPassword(
-                          email: emailController.value.toString(),
-                          password: passwordController.value.toString(),
+                          email: emailController.text,
+                          password: passwordController.text,
                         );
                       },
                     ),

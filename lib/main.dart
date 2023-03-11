@@ -7,8 +7,9 @@ import 'package:project_pulse/firebase_options.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
-  await FirebaseAuth.instance.useAuthEmulator('localhost', 3000);
+  await FirebaseAuth.instance.useAuthEmulator('192.168.43.82', 9099);
 
+  FirebaseAuth.instance.setPersistence(Persistence.SESSION);
   FirebaseAuth.instance.authStateChanges().listen((User? user) {
     if (user == null) {
       debugPrint('user is null');
